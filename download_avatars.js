@@ -4,7 +4,7 @@ var fs = require('fs');
 var argv1 = process.argv[2];
 var argv2 = process.argv[3];
 if (!argv1) {
-	console.log("No input given");
+	console.log("No input given.");
 	process.exit();
 }
 
@@ -21,10 +21,8 @@ function getRepoContributors(repoOwner, repoName, cb) {
 
   request(options, function(err, res, body) {
     var repos = JSON.parse(body);
-    // console.log(repos);
   	repos.forEach(function(repo) {
   		downloadImageByURL(repo.avatar_url,  "avatars/" + repo.login + ".jpeg");
-    	// console.log(repo.avatar_url);
   	});
   	cb(err, body);
   	});
